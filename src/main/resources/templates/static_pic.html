@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>ECharts</title>
+        <!-- 引入刚刚下载的 ECharts 文件 -->
+        <script src="js/echarts.js"></script>
+    </head>
+    <body>
+        <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+        <div id="main" style="width: 600px;height:400px;position: absolute;left: 50%;top: 50%;margin-left: -300px;margin-top: -200px"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            option = {
+                title: {
+                    text: 'Weather Statistics',
+                    subtext: 'Fake Data',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    bottom: 10,
+                    left: 'center',
+                    data: ['CityA', 'CityB', 'CityD', 'CityC', 'CityE']
+                },
+                series: [
+                    {
+                        type: 'pie',
+                        radius: '65%',
+                        center: ['50%', '50%'],
+                        selectedMode: 'single',
+                        data: [
+                            {value:3350, name:'Spark SQL项目实战'},
+                            {value:3100, name:'Hadoop入门'},
+                            {value:2340, name:'Spark Streaming项目实战'},
+                            {value:1350, name:'大数据面试题'},
+                            {value:15480, name:'Storm项目实战'}
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+    </body>
+</html>
